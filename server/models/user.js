@@ -18,9 +18,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     lastName : {
       type : DataTypes.STRING,
+
       allowNull : false
     },
-
     contact: {
       type: DataTypes.INTEGER,
       allowNull: true

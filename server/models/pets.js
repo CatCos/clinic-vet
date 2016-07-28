@@ -1,9 +1,11 @@
 'use strict'
 
+
 var models = require("../models");
 module.exports = function (sequelize, DataTypes) {
 
-  var Pet = sequelize.define('Pet', {
+
+  var Pet = squelize.define('Pet', {
     id : {
       type : DataTypes.INTEGER,
       primaryKey : true,
@@ -60,5 +62,6 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     return Pet;
+  });
 
 };
