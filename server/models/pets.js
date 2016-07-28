@@ -1,11 +1,8 @@
 'use strict'
 
-
-var models = require("../models");
 module.exports = function (sequelize, DataTypes) {
+  var Pet = sequelize.define('pet', {
 
-
-  var Pet = squelize.define('Pet', {
     id : {
       type : DataTypes.INTEGER,
       primaryKey : true,
@@ -21,27 +18,33 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATEONLY
     },
 
+    gender : {
+      type : DataTypes.CHAR,
+      allowNull: false
+    },
+
     weight : {
-      type: DataTypes.INTEGER
+      type: DataTypes.DOUBLE
     },
 
     height : {
-      type : DataTypes.INTEGER
+      type : DataTypes.DOUBLE
     },
 
     owner_id : {
       type : DataTypes.INTEGER,
 
       references : {
-        model : 'Users',
+        model : 'users',
         key : 'id'
       }
     },
+
     specie_id : {
       type : DataTypes.INTEGER,
 
       references : {
-        model : 'Species',
+        model : 'species',
         key : 'id'
       }
     },
@@ -53,6 +56,7 @@ module.exports = function (sequelize, DataTypes) {
     tail : {
       type : DataTypes.STRING
     }
+
     }, {
       classMethods: {
         associate: function(models) {
@@ -62,6 +66,4 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     return Pet;
-  });
-
-};
+  };
