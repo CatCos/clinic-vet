@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function(sequelize, DataTypes) {
-  var Desparasitation = sequelize.define('desparasitation', {
+  const Desparasitation = sequelize.define('desparasitation', {
     id : {
       type : DataTypes.INTEGER,
       primaryKey : true,

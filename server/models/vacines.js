@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
 
-  var Vacine = sequelize.define('vacine', {
+  const Vacine = sequelize.define('vacine', {
     id : {
       type : DataTypes.INTEGER,
       primaryKey: true,

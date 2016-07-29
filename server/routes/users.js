@@ -1,22 +1,23 @@
-var express = require('express');
-var router = express.Router();
-var models = require("../models");
-var users = require("../handlers/users.js");
+'use strict'
 
+const express = require('express');
+const router = express.Router();
+const models = require("../models");
+const users = require("../handlers/users.js");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', (req, res) => {
+  let response = users.all()
 
-
-router.get('/create', function(req, res) {
-  users.addUser(req);
+  res.json(response)
 
 });
 
-router.get('/getall', function(req, res) {
-  users.getUsers(res)
+router.post('/new', (req, res) => {
+  let response = users.new(req);
+
+
 
 });
+
+
 module.exports = router;

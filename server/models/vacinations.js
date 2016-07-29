@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function(sequelize, DataTypes) {
-  var Vacionation = sequelize.define('vacination', {
+  const Vacionation = sequelize.define('vacination', {
     id : {
       type : DataTypes.INTEGER,
       primaryKey : true,

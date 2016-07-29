@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function(sequelize, DataTypes) {
-  var Surgery = sequelize.define('surgery', {
+  const Surgery = sequelize.define('surgery', {
 
     id : {
       type : DataTypes.INTEGER,
@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       autoIncrement: true
     },
-    
+
     pet_id : {
       type : DataTypes.INTEGER,
       allowNull: false,

@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var models = require("../models");
-var species = require("../handlers/species.js");
+'use strict'
 
-router.get('/getAll', function(req, res, next) {
+const express = require('express');
+const router = express.Router();
+const models = require("../models");
+const species = require("../handlers/species.js");
+
+router.get('/all', (req, res, next) => {
   res.send('respond with a resource');
 });
 

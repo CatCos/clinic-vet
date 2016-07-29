@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function (sequelize, DataTypes) {
-  var Pet = sequelize.define('pet', {
+  let Pet = sequelize.define('pet', {
 
     id : {
       type : DataTypes.INTEGER,
