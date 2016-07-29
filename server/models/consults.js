@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
 
-    type_consult : {
+    type : {
       type : DataTypes.INTEGER,
 
       references : {
@@ -40,6 +40,14 @@ module.exports = function (sequelize, DataTypes) {
     },
 
     obs : { type : DataTypes.TEXT}
+  },
+    {
+     classMethods: {
+       associate: function(models) {
+         Consult.belongsTo(models.pet, {foreignKey: 'pet_id'})
+         Consult.belongsTo(models.type_consult, {foreignKey: 'type'})
+       }
+     }
 
   });
 

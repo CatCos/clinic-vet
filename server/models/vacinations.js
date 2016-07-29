@@ -36,7 +36,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
+
     obs : {type: DataTypes.TEXT}
+  },{
+       classMethods: {
+         associate: function(models) {
+           Vacionation.belongsTo(models.pet, {foreignKey: 'pet_id'})
+           Vacionation.belongsTo(models.vacine, {foreignKey : 'vacine_id'})
+         }
+       }
   });
 
   return Vacionation

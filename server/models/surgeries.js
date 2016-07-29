@@ -27,13 +27,28 @@ module.exports = function(sequelize, DataTypes) {
       type : DataTypes.DATE,
       allowNull: false
     },
+    type : {
+      type: DataTypes.INTEGER,
 
+      references : {
+        model : 'type_surgeries',
+        key : 'id'
+      }
+    },
     cost : {
       type : DataTypes.DOUBLE,
       allowNull: false
     },
 
-    obs : {type: DataTypes.TEXT}
+    obs : {type: DataTypes.TEXT
+    }
+  },{
+       classMethods: {
+         associate: function(models) {
+           Surgery.belongsTo(models.pet, {foreignKey: 'pet_id'})
+           Surgery.belongsTo(models.type_surgery, {foreignKey : 'type'})
+         }
+       }
   });
 
   return Surgery;

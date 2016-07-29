@@ -60,7 +60,12 @@ module.exports = function (sequelize, DataTypes) {
     }, {
       classMethods: {
         associate: function(models) {
-          // associations can be defined here
+          Pet.belongsTo(models.specie, {foreignKey : 'specie_id'})
+          Pet.belongsTo(models.user, {foreignKey: 'owner_id'})
+
+          Pet.hasMany(models.consult, {foreignKey : 'pet_id'})
+          Pet.hasMany(models.desparasitation, {foreignKey: 'pet_id'})
+          Pet.hasMany(models.vacination, {foreignKey: 'pet_id'})
         }
       }
     });

@@ -22,6 +22,14 @@ module.exports = function (sequelize, DataTypes) {
     for_animal : {
       type: DataTypes.STRING
     }
+  },
+      {
+       classMethods: {
+         associate: function(models) {
+           Type_Surgery.hasMany(models.surgery, {foreignKey: 'type'})
+         }
+       }
+
 
   });
 

@@ -25,7 +25,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
-    obs : {type: DataTypes.TEXT}
+    obs : {type: DataTypes.TEXT
+    }
+  },{
+       classMethods: {
+         associate: function(models) {
+           Desparasitation.belongsTo(models.pet, {foreignKey: 'pet_id'})
+         }
+       }
   });
 
   return Desparasitation

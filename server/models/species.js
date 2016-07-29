@@ -27,7 +27,14 @@ module.exports = function(sequelize, DataTypes) {
     obs : {
       type: DataTypes.TEXT,
       allowNull : true
-    }
+    }}, {
+      classMethods: {
+        associate: function(models) {
+
+          Specie.hasMany(models.pet, {foreignKey: 'specie_id'})
+          // associations can be defined here
+        }
+      }
   });
 
     return Specie;
