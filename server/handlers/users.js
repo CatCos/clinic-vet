@@ -31,4 +31,28 @@ module.exports.all = () => {
          });
       return users;
     });
+module.exports.find = (user_id, res) =>
+{
+  models.user.findOne(
+  {
+    where:
+    {
+      id: user_id
+    }
+  }).then((result) =>
+  {
+
+    let response = {
+      username: result.username,
+      firstName: result.firstName,
+      lastName: result.lastName,
+      contact: result.contact,
+      email: result.email,
+      addres: result.address,
+      zip_code: result.zip_code
+    }
+    
+    res.json(response)
+
+  });
 };
