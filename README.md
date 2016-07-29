@@ -1,12 +1,11 @@
-### clinic-vet
+# clinic-vet
 
 A platform for vets and pet owners being able to manage the medical file of the pet.
 
-### Requisites
+## Requisites
 
 For the API to work, it is necessary to install `node.js`, `npm`, `postgres`, `sequelize`
 
-## Ubuntu
 # Node.js and npm
 
 ```
