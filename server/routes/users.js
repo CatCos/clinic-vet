@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
 })
 
 
-router.put('/update/:id', (req, res) => {
+router.put('/edit/:id', (req, res) => {
 
   users.update(req.params.id, req, res)
 
