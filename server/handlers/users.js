@@ -62,9 +62,37 @@ module.exports.find = (user_id, res) =>
       email     : result.email,
       address   : result.address,
       zip_code  : result.zip_code
-    }
+/**
+ * Deletes the specified user from the database
+**/
+module.exports.delete = (user_id, res) => {
 
-    res.json(response)
+    models.user.destroy({
+      where:
+      {
+        id : user_id
+      }
+    }).then((results) => {
+
+        res.json( {"error" : false, "message" : "success", "data" : "USER DELETED"});
+    });
+};
+
+
+/**
+ * Updates the information of the specified user
+ **/
+module.exports.update = (user_id, data, res) => {
+  models.user.update(
+    {
+      firstName : data.body.firstName
+    }, {
+    where : {
+      id : user_id
+    }
+  }).then((results) => {
+
+    res.json({"error" : false, "message" : "success", "data" : "USER UPDATED"});
 
   });
 };

@@ -25,4 +25,14 @@ router.get('/:id', (req, res) => {
 })
 
 
+router.put('/update/:id', (req, res) => {
+
+  users.update(req.params.id, req, res)
+
+});
+
+router.delete('/delete/:id', (req, res) => {
+  users.delete(req.params.id, res);
+
+})
 module.exports = router;
