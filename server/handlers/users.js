@@ -58,15 +58,15 @@ module.exports.find = (user_id, res) =>
   {
 
     let response = {
-      username: result.username,
-      firstName: result.firstName,
-      lastName: result.lastName,
-      contact: result.contact,
-      email: result.email,
-      addres: result.address,
-      zip_code: result.zip_code
+      username  : result.username,
+      firstName : result.firstName,
+      lastName  : result.lastName,
+      contact   : result.contact,
+      email     : result.email,
+      address   : result.address,
+      zip_code  : result.zip_code
     }
-    
+
     res.json(response)
 
   });
