@@ -6,6 +6,7 @@ module.exports.new = (req) =>
 /**
  * Insert new user
  **/
+module.exports.new = (req, res) =>
 {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
