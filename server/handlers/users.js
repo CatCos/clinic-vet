@@ -1,12 +1,16 @@
 'use strict'
 const models = require("../models");
+const bcrypt = require('bcrypt');
 
 module.exports.new = (req) =>
 {
+  const salt = bcrypt.genSaltSync();
+  const hash = bcrypt.hashSync(req.body.password, salt);
 
   models.user.create(
   {
     username: req.body.username,
+    password : hash,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     contact: req.body.contact,
