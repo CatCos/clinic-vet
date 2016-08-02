@@ -60,15 +60,21 @@ module.exports.find = (user_id, res) =>
     }
   }).then((result) =>
   {
+      let response = {
+        username  : result.username,
+        firstName : result.firstName,
+        lastName  : result.lastName,
+        contact   : result.contact,
+        email     : result.email,
+        address   : result.address,
+        zip_code  : result.zip_code
+      }
 
-    let response = {
-      username  : result.username,
-      firstName : result.firstName,
-      lastName  : result.lastName,
-      contact   : result.contact,
-      email     : result.email,
-      address   : result.address,
-      zip_code  : result.zip_code
+      res.json(response)
+  });
+};
+
+
 /**
  * Deletes the specified user from the database
 **/
