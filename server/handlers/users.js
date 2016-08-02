@@ -2,7 +2,6 @@
 const models = require("../models");
 const bcrypt = require('bcrypt');
 
-module.exports.new = (req) =>
 /**
  * Insert new user
  **/
@@ -24,11 +23,8 @@ module.exports.new = (req, res) =>
 
   }).then(function(user)
   {
-    // you can now access the newly created user via the variable user
-    console.log("USER INSERTED")
-
-    return {};
-  })
+    res.json( {"error" : false, "message" : "success", "data" : "USER INSERTED"});
+  });
 };
 
 /**
