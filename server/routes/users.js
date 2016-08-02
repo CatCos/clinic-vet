@@ -7,13 +7,14 @@ const users = require("../handlers/users.js");
 
 // Get the information of all users
 router.get('/', (req, res) => {
-  let response = users.all(res)
+  users.all(res)
 
 });
 
 // Add new user
-router.get('/new', (req, res) => {
-  let response = users.new(req);
+router.post('/new', (req, res) => {
+
+  users.new(req, res);
 
 });
 
