@@ -21,7 +21,7 @@ module.exports.new = (req, res) =>
     address: req.body.address,
     zip_code: req.body.zip_code
 
-  }).then(function(user)
+  }).then((user) =>
   {
     res.json( {"error" : false, "message" : "success", "data" : "USER INSERTED"});
   });
@@ -32,10 +32,17 @@ module.exports.new = (req, res) =>
 **/
 module.exports.all = (res) =>
 {
-  let users = {};
-  models.user.findAll().then((users) =>
+  let users = [];
+  models.user.findAll().then((results) =>
   {
-    res.json(users);
+    for (let i = 0; i < results.length; i++) {
+      let user = results[i]
+      let info = user.dataValues
+      users.push(
+        info
+      )
+    }
+    res.send(users);
   });
 };
 
