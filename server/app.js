@@ -12,7 +12,10 @@ const routes = require('./routes/index');
 const users = require('./routes/users');
 const species = require('./routes/species')
 
+require('dotenv').config();
+
 const app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
