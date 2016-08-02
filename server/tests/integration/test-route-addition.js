@@ -9,7 +9,6 @@ exports.users_should_return_all_users = (done) => {
   .get('/users/')
   .expect(200)
   .end((err, res) => {
-    if (err) return done(err);
 
     res.status.should.equal(200);
 
@@ -41,12 +40,12 @@ exports.users_should_return_sucess = (done) => {
   .expect(200)
   .expect('Content-Type', /json/)
   .end((err, res) => {
-    if (err) return done(err);
 
     res.status.should.equal(200);
     res.body.error.should.equal(false);
     res.body.should.have.property('message', 'success');
     res.body.should.have.property('data', 'USER INSERTED');
+
     return done();
   });
 };
@@ -57,11 +56,10 @@ exports.user_should_return_user_1_information = (done) => {
   .get('/users/1')
   .expect(200)
   .end((err, res) => {
-    if (err) return done(err)
 
     res.status.should.equal(200);
 
-    res.body.should.be.type('object');
+    res.body.should.be.json;
 
     res.body.username.should.be.type('string');
     res.body.firstName.should.be.type('string');
@@ -70,6 +68,42 @@ exports.user_should_return_user_1_information = (done) => {
     res.body.email.should.be.type('string');
     res.body.address.should.be.type('string');
     res.body.zip_code.should.be.type('string');
+
+    return done();
+  });
+}
+
+exports.user_should_update_user = (done) => {
+  supertest(app)
+  .put('/users/update/1')
+  .send({'firstName' : 'Ana'})
+  .expect(200)
+  .end((err, res) => {
+
+    res.status.should.equal(200);
+
+    res.status.should.equal(200);
+    res.body.error.should.equal(false);
+    res.body.should.have.property('message', 'success');
+    res.body.should.have.property('data', 'USER UPDATED');
+
+    return done();
+  });
+}
+
+exports.user_should_delete_user = (done) => {
+  supertest(app)
+  .delete('/users/delete/43')
+  .expect(200)
+  .end((err, res) => {
+
+    res.status.should.equal(200);
+
+    res.status.should.equal(200);
+    res.body.error.should.equal(false);
+    res.body.should.have.property('message', 'success');
+    res.body.should.have.property('data', 'USER DELETED');
+
     return done();
   });
 }
