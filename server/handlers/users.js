@@ -3,6 +3,9 @@ const models = require("../models");
 const bcrypt = require('bcrypt');
 
 module.exports.new = (req) =>
+/**
+ * Insert new user
+ **/
 {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
@@ -27,6 +30,9 @@ module.exports.new = (req) =>
   })
 };
 
+/**
+ * Returns all users that exist into the database
+**/
 module.exports.all = (res) =>
 {
   let users = {};
@@ -37,6 +43,9 @@ module.exports.all = (res) =>
 };
 
 
+/**
+ * Returns information of a specific user
+ **/
 module.exports.find = (user_id, res) =>
 {
   models.user.findOne(
